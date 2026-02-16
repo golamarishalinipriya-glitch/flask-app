@@ -1,0 +1,17 @@
+<h2>User Profile</h2>
+
+Username: {{ user[1] }}<br>
+First Name: {{ user[3] }}<br>
+Last Name: {{ user[4] }}<br>
+Email: {{ user[5] }}<br>
+Address: {{ user[6] }}<br>
+
+{% if user[7] %}
+    Word Count: {{ user[8] }}<br>
+    <a href="/download/{{ user[7] }}">Download File</a><br>
+{% else %}
+    No file uploaded yet.<br>
+{% endif %}
+
+<a href="/login">Re-Login</a>
+

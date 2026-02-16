@@ -1,0 +1,24 @@
+<h2>User Profile</h2>
+
+<p><b>Username:</b> {{ user['username'] }}</p>
+<p><b>First Name:</b> {{ user['firstname'] }}</p>
+<p><b>Last Name:</b> {{ user['lastname'] }}</p>
+<p><b>Email:</b> {{ user['email'] }}</p>
+<p><b>Address:</b> {{ user['address'] }}</p>
+
+{% if user['wordcount'] %}
+<p><b>Uploaded File Word Count:</b> {{ user['wordcount'] }}</p>
+<a href="{{ url_for('download', filename=user['filename']) }}">
+    <button>Download File</button>
+</a>
+{% endif %}
+
+<h3>Upload Limerick.txt</h3>
+
+<form action="/upload/{{ user['username'] }}" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <input type="submit" value="Upload">
+</form>
+
+<br>
+<a href="/">Register New User</a>

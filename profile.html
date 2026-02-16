@@ -6,12 +6,13 @@ Last Name: {{ user[4] }}<br>
 Email: {{ user[5] }}<br>
 Address: {{ user[6] }}<br>
 
-{% if user[7] %}
-    Word Count: {{ user[8] }}<br>
-    <a href="/download/{{ user[7] }}">Download File</a><br>
-{% else %}
-    No file uploaded yet.<br>
+<h3>Upload Limerick.txt</h3>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+<input type="file" name="file">
+<input type="submit" value="Upload">
+</form>
+
+{% if word_count %}
+<p>Word Count: {{ word_count }}</p>
+<a href="/download">Download File</a>
 {% endif %}
-
-<a href="/login">Re-Login</a>
-
